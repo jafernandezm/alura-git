@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="sumatoria">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="num" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sumatoriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="sumatoriaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="factorial">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="num" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="factorialResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="factorialResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="fibonacci">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="num" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="fibonacciResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fibonacciResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="sumatoriaSoapIn">
+    <wsdl:part name="parameters" element="tns:sumatoria" />
+  </wsdl:message>
+  <wsdl:message name="sumatoriaSoapOut">
+    <wsdl:part name="parameters" element="tns:sumatoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="factorialSoapIn">
+    <wsdl:part name="parameters" element="tns:factorial" />
+  </wsdl:message>
+  <wsdl:message name="factorialSoapOut">
+    <wsdl:part name="parameters" element="tns:factorialResponse" />
+  </wsdl:message>
+  <wsdl:message name="fibonacciSoapIn">
+    <wsdl:part name="parameters" element="tns:fibonacci" />
+  </wsdl:message>
+  <wsdl:message name="fibonacciSoapOut">
+    <wsdl:part name="parameters" element="tns:fibonacciResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WSOServerSoap">
+    <wsdl:operation name="sumatoria">
+      <wsdl:input message="tns:sumatoriaSoapIn" />
+      <wsdl:output message="tns:sumatoriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="factorial">
+      <wsdl:input message="tns:factorialSoapIn" />
+      <wsdl:output message="tns:factorialSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="fibonacci">
+      <wsdl:input message="tns:fibonacciSoapIn" />
+      <wsdl:output message="tns:fibonacciSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSOServerSoap" type="tns:WSOServerSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="sumatoria">
+      <soap:operation soapAction="http://tempuri.org/sumatoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="factorial">
+      <soap:operation soapAction="http://tempuri.org/factorial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fibonacci">
+      <soap:operation soapAction="http://tempuri.org/fibonacci" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSOServerSoap12" type="tns:WSOServerSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="sumatoria">
+      <soap12:operation soapAction="http://tempuri.org/sumatoria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="factorial">
+      <soap12:operation soapAction="http://tempuri.org/factorial" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fibonacci">
+      <soap12:operation soapAction="http://tempuri.org/fibonacci" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSOServer">
+    <wsdl:port name="WSOServerSoap" binding="tns:WSOServerSoap">
+      <soap:address location="https://localhost:44373/WSOServer.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSOServerSoap12" binding="tns:WSOServerSoap12">
+      <soap12:address location="https://localhost:44373/WSOServer.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
